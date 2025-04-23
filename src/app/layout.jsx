@@ -8,19 +8,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className='w-full h-full'>
     <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/src/styles.css" rel="stylesheet" />
     </head>
     <body
-    className={`antialiased`}
+    className="w-full h-full"
     >
-        <div>
-            <h1 className="blue">Root Layout</h1>
-            <main>{children}</main>
-        </div>
+      <main
+      className="w-full h-full"
+      >
+        {children}
+      </main>
     </body>
 </html>
   )

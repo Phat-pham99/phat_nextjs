@@ -9,17 +9,22 @@ const LoginForm = () => {
     const [form] = Form.useForm();
     const [Username, setUsername] = useState('');
     const [Password, setPassword] = useState('');
+    const [Email, setEmail] = useState('');
 
     const handleUsername = (e) => {
-        setUsername(e.target)
+        setUsername(e.target);
     }
     const handlePassword = (e) => {
-        setPassword(e.target)
+        setPassword(e.target);
+    }
+    const handleEmail = (e) => {
+        setEmail(e.target);
     }
     const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Username:', Username.value);
     console.log('Password:', Password.value);
+    console.log('Email',Email.value)
     if (Username.value == "hphat99" && Password.value == "12345"){
         redirect('/');
     }
@@ -28,9 +33,9 @@ const LoginForm = () => {
         form.resetFields();
     };
     return (
-        <div className='Login-form-component'>
+        <div className='Signup-form-component'>
             <Form 
-            name="Login form"
+            name="Signup form"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
             style={{ maxWidth: 600 }}
@@ -46,6 +51,16 @@ const LoginForm = () => {
                         placeholder="Username"
                         value={Username}
                         onChange={handleUsername}/>
+                </Form.Item>
+                <Form.Item
+                label="Email"
+                name="email"
+                rules={[{ required: true, message: 'Please input your email!' }]}
+                >
+                    <Input 
+                        placeholder="Email"
+                        value={Email}
+                        onChange={setEmail}/>
                 </Form.Item>
                 <Form.Item
                 label="Password"
@@ -77,10 +92,6 @@ const LoginForm = () => {
                         Reset
                     </Button>
                     </div>
-                </Form.Item>
-                <Form.Item label={null}>
-                    Dont have any account yet ?  
-                    <a href='/signup'>  Signup here</a>
                 </Form.Item>
             </Form>
         </div>

@@ -3,6 +3,7 @@ import { Alert } from 'antd';
 
 const LoginAlert = () => {
     const urlParams = new URLSearchParams(window.location.search);
+    // const urlParams = "alert=true";
     console.log("urlParams",urlParams.toString());
     return urlParams.toString() == "alert=true" ? (
         <Alert
