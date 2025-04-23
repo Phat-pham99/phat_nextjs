@@ -21,24 +21,6 @@ const LandingPage = () => {
     }, []); // Empty array ensures this runs only once
     console.log("data -after",Data);
 
-    const MainCard = ({ data }) => {
-        return (
-            <>
-                {data.map((item, index) => 
-                    (
-                    <Card 
-                    size='medium' title= {item.tags}
-                    variant='outlined' 
-                    hoverable
-                    cover={<img alt="example" src={`https://cataas.com/cat/${item.id}`} width="50" height="50" />}
-                    >
-                        <h1>Card 1</h1>
-                    </Card>
-                ))}
-            </>
-        );
-    };
-
     return (
     <div className="LandingPage h-full w-full">
         <div className="bg-cyan-50 justify-center h-2/12 items-stretch" >
@@ -51,9 +33,19 @@ const LandingPage = () => {
                 autoplay={{ dotDuration: true }} 
                 arrows 
                 infinite={true}
-                className="absolute bg-blue-200 flex min-w-40 min-h-40 z-40 px-5 py-5 items-center-safe"
+                className="absolute bg-blue-200 flex w-160 h-160 z-40 px-5 py-5 items-center-safe"
                 >
-                <MainCard key={""} data={Data} />
+                {Data.map((item, index) => 
+                    (
+                    <Card 
+                    size='small' title= {item.tags}
+                    variant='outlined' 
+                    hoverable
+                    cover={<img alt="example" src={`https://cataas.com/cat/${item.id}`} width="20" height="20" />}
+                    >
+                        <h1>Card 1</h1>
+                    </Card>
+                ))}
             </Carousel>
         </div>
     </div>
